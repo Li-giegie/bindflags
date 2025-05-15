@@ -88,138 +88,138 @@ func BindFlags(flag *pflag.FlagSet, a any, group ...string) error {
 			switch fv.Type().Elem().Kind() {
 			case reflect.String:
 				if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-					flag.StringSliceVarP((*[]string)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("string", true).([]string), flagTag.Name)
+					flag.StringSliceVarP((*[]string)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("string", true).([]string), flagTag.Usage)
 				} else {
-					flag.StringSliceVar((*[]string)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("string", true).([]string), flagTag.Name)
+					flag.StringSliceVar((*[]string)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("string", true).([]string), flagTag.Usage)
 				}
 			case reflect.Int:
 				if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-					flag.IntSliceVarP((*[]int)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int", true).([]int), flagTag.Name)
+					flag.IntSliceVarP((*[]int)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int", true).([]int), flagTag.Usage)
 				} else {
-					flag.IntSliceVar((*[]int)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int", true).([]int), flagTag.Name)
+					flag.IntSliceVar((*[]int)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int", true).([]int), flagTag.Usage)
 				}
 			case reflect.Int32:
 				if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-					flag.Int32SliceVarP((*[]int32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int32", true).([]int32), flagTag.Name)
+					flag.Int32SliceVarP((*[]int32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int32", true).([]int32), flagTag.Usage)
 				} else {
-					flag.Int32SliceVar((*[]int32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int32", true).([]int32), flagTag.Name)
+					flag.Int32SliceVar((*[]int32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int32", true).([]int32), flagTag.Usage)
 				}
 			case reflect.Int64:
 				if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-					flag.DurationSliceVarP((*[]time.Duration)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("duration", true).([]time.Duration), flagTag.Name)
+					flag.DurationSliceVarP((*[]time.Duration)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("duration", true).([]time.Duration), flagTag.Usage)
 				} else {
-					flag.DurationSliceVar((*[]time.Duration)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("duration", true).([]time.Duration), flagTag.Name)
+					flag.DurationSliceVar((*[]time.Duration)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("duration", true).([]time.Duration), flagTag.Usage)
 				}
 			case reflect.Uint:
 				if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-					flag.UintSliceVarP((*[]uint)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint", true).([]uint), flagTag.Name)
+					flag.UintSliceVarP((*[]uint)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint", true).([]uint), flagTag.Usage)
 				} else {
-					flag.UintSliceVar((*[]uint)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint", true).([]uint), flagTag.Name)
+					flag.UintSliceVar((*[]uint)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint", true).([]uint), flagTag.Usage)
 				}
 			case reflect.Float32:
 				if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-					flag.Float32SliceVarP((*[]float32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("float32", true).([]float32), flagTag.Name)
+					flag.Float32SliceVarP((*[]float32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("float32", true).([]float32), flagTag.Usage)
 				} else {
-					flag.Float32SliceVar((*[]float32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("float32", true).([]float32), flagTag.Name)
+					flag.Float32SliceVar((*[]float32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("float32", true).([]float32), flagTag.Usage)
 				}
 			case reflect.Float64:
 				if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-					flag.Float64SliceVarP((*[]float64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("float64", true).([]float64), flagTag.Name)
+					flag.Float64SliceVarP((*[]float64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("float64", true).([]float64), flagTag.Usage)
 				} else {
-					flag.Float64SliceVar((*[]float64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("float64", true).([]float64), flagTag.Name)
+					flag.Float64SliceVar((*[]float64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("float64", true).([]float64), flagTag.Usage)
 				}
 			case reflect.Bool:
 				if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-					flag.BoolSliceVarP((*[]bool)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("bool", true).([]bool), flagTag.Name)
+					flag.BoolSliceVarP((*[]bool)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("bool", true).([]bool), flagTag.Usage)
 				} else {
-					flag.BoolSliceVar((*[]bool)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("bool", true).([]bool), flagTag.Name)
+					flag.BoolSliceVar((*[]bool)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("bool", true).([]bool), flagTag.Usage)
 				}
 			default:
 				panic(fmt.Sprintf("unsupported type: %T", fv.Interface()))
 			}
 		case reflect.String:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.StringVarP((*string)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.Value, flagTag.Name)
+				flag.StringVarP((*string)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.Value, flagTag.Usage)
 			} else {
-				flag.StringVar((*string)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Value, flagTag.Name)
+				flag.StringVar((*string)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Value, flagTag.Usage)
 			}
 		case reflect.Int:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.IntVarP((*int)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int").(int), flagTag.Name)
+				flag.IntVarP((*int)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int").(int), flagTag.Usage)
 			} else {
-				flag.IntVar((*int)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int").(int), flagTag.Name)
+				flag.IntVar((*int)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int").(int), flagTag.Usage)
 			}
 		case reflect.Int8:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Int8VarP((*int8)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int8").(int8), flagTag.Name)
+				flag.Int8VarP((*int8)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int8").(int8), flagTag.Usage)
 			} else {
-				flag.Int8Var((*int8)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int8").(int8), flagTag.Name)
+				flag.Int8Var((*int8)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int8").(int8), flagTag.Usage)
 			}
 		case reflect.Int16:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Int16VarP((*int16)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int16").(int16), flagTag.Name)
+				flag.Int16VarP((*int16)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int16").(int16), flagTag.Usage)
 			} else {
-				flag.Int16Var((*int16)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int16").(int16), flagTag.Name)
+				flag.Int16Var((*int16)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int16").(int16), flagTag.Usage)
 			}
 		case reflect.Int32:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Int32VarP((*int32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int32").(int32), flagTag.Name)
+				flag.Int32VarP((*int32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int32").(int32), flagTag.Usage)
 			} else {
-				flag.Int32Var((*int32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int32").(int32), flagTag.Name)
+				flag.Int32Var((*int32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int32").(int32), flagTag.Usage)
 			}
 		case reflect.Int64:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Int64VarP((*int64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int64").(int64), flagTag.Name)
+				flag.Int64VarP((*int64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("int64").(int64), flagTag.Usage)
 			} else {
-				flag.Int64Var((*int64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int64").(int64), flagTag.Name)
+				flag.Int64Var((*int64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("int64").(int64), flagTag.Usage)
 			}
 		case reflect.Uint:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.UintVarP((*uint)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint").(uint), flagTag.Name)
+				flag.UintVarP((*uint)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint").(uint), flagTag.Usage)
 			} else {
-				flag.UintVar((*uint)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint").(uint), flagTag.Name)
+				flag.UintVar((*uint)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint").(uint), flagTag.Usage)
 			}
 		case reflect.Uint8:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Uint8VarP((*uint8)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint8").(uint8), flagTag.Name)
+				flag.Uint8VarP((*uint8)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint8").(uint8), flagTag.Usage)
 			} else {
-				flag.Uint8Var((*uint8)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint8").(uint8), flagTag.Name)
+				flag.Uint8Var((*uint8)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint8").(uint8), flagTag.Usage)
 			}
 		case reflect.Uint16:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Uint16VarP((*uint16)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint16").(uint16), flagTag.Name)
+				flag.Uint16VarP((*uint16)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint16").(uint16), flagTag.Usage)
 			} else {
-				flag.Uint16Var((*uint16)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint16").(uint16), flagTag.Name)
+				flag.Uint16Var((*uint16)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint16").(uint16), flagTag.Usage)
 			}
 		case reflect.Uint32:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Uint32VarP((*uint32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint32").(uint32), flagTag.Name)
+				flag.Uint32VarP((*uint32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint32").(uint32), flagTag.Usage)
 			} else {
-				flag.Uint32Var((*uint32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint32").(uint32), flagTag.Name)
+				flag.Uint32Var((*uint32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint32").(uint32), flagTag.Usage)
 			}
 		case reflect.Uint64:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Uint64VarP((*uint64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint64").(uint64), flagTag.Name)
+				flag.Uint64VarP((*uint64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("uint64").(uint64), flagTag.Usage)
 			} else {
-				flag.Uint64Var((*uint64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint64").(uint64), flagTag.Name)
+				flag.Uint64Var((*uint64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("uint64").(uint64), flagTag.Usage)
 			}
 		case reflect.Float32:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Float32VarP((*float32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("float32").(float32), flagTag.Name)
+				flag.Float32VarP((*float32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("float32").(float32), flagTag.Usage)
 			} else {
-				flag.Float32Var((*float32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("float32").(float32), flagTag.Name)
+				flag.Float32Var((*float32)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("float32").(float32), flagTag.Usage)
 			}
 		case reflect.Float64:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.Float64VarP((*float64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("float64").(float64), flagTag.Name)
+				flag.Float64VarP((*float64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("float64").(float64), flagTag.Usage)
 			} else {
-				flag.Float64Var((*float64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("float64").(float64), flagTag.Name)
+				flag.Float64Var((*float64)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("float64").(float64), flagTag.Usage)
 			}
 		case reflect.Bool:
 			if flagTag.Shorthand != "" && flagTag.Shorthand != "-" {
-				flag.BoolVarP((*bool)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("bool").(bool), flagTag.Name)
+				flag.BoolVarP((*bool)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.Shorthand, flagTag.convertValue("bool").(bool), flagTag.Usage)
 			} else {
-				flag.BoolVar((*bool)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("bool").(bool), flagTag.Name)
+				flag.BoolVar((*bool)(fv.Addr().UnsafePointer()), flagTag.Name, flagTag.convertValue("bool").(bool), flagTag.Usage)
 			}
 		default:
 			panic(fmt.Sprintf("unsupported type: %T", fv.Interface()))
