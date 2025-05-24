@@ -1,36 +1,39 @@
 package bindflags
 
 import (
-	"github.com/spf13/pflag"
+	"flag"
+	"fmt"
 	"testing"
 )
 
-func TestBindFlags(t *testing.T) {
-	f := pflag.NewFlagSet("test", pflag.ContinueOnError)
-	s := new(student)
-	MustBindFlags(f, s)
-	f.PrintDefaults()
-	//  -a, --age int       age
-	//  -d, --desc string   desc
-	//  -n, --name string   name (default "ss")
-	//  -s, --sex           sex (default true)
-	//PASS
-}
+type tf int
 
-type student struct {
-	Name string `flag:"Name:name;shorthand:n;value:ss;usage:name of student"`
-	Age  int    `flag:"age;a;0;usage:age of student"`
-	Sex  bool   `flag:"sex;s;true;sex"`
-	Desc studentDesc
-}
-
-type studentDesc string
-
-func (s studentDesc) GetFlagTag() IFlagTag {
+func (tf) GetFlag() IFlagTag {
 	return &FlagTag{
-		Name:      "desc",
-		Shorthand: "d",
-		Value:     "",
-		Usage:     "student description",
+		Name:  "f",
+		Value: "100",
+		Usage: "case f usage",
 	}
+}
+
+type F struct {
+	A string  `flag:"name:a;value:abc;usage:case a usage"`
+	B int     `flag:"b;123;case b usage"`
+	C bool    `flag:"name:c;usage:case c usage"`
+	D float64 `flag:"3.1415926;usage:case d usage;name:d"`
+	E uint    `flag:"value:1"`
+	d string
+	F tf
+}
+
+func TestBindFlags(t *testing.T) {
+	f := flag.NewFlagSet("test", flag.ContinueOnError)
+	e := &F{}
+	err := BindFlags(f, e)
+	if err != nil {
+		t.Fatal(err)
+		return
+	}
+	f.PrintDefaults()
+	fmt.Printf("%#v\n", e)
 }

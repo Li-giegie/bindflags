@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestFlagTag(t *testing.T) {
+func TestPFlagTag(t *testing.T) {
 	testCases := []string{
 		"name:123;Shorthand:asd;Value:as;Usage:123",
 		"123;asd;;123",
@@ -23,7 +23,7 @@ func TestFlagTag(t *testing.T) {
 
 	for _, tc := range testCases {
 		fmt.Printf("in: %s\n", tc)
-		result, err := scanFlagTag(tc)
+		result, err := scanPFlagTag(tc)
 		if err != nil {
 			println(err.Error())
 		} else {
